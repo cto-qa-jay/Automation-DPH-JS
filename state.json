@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://beta.fleet.ph",
+      "localStorage": [
+        {
+          "name": "sub-c-76ce8c20-6c7a-11e9-a1d6-2a8c316da507uuid",
+          "value": "pn-c615bbc6-7e8a-4c53-aaa9-54a55fe7d577"
+        }
+      ]
+    }
+  ]
+}

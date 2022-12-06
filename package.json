@@ -1,0 +1,16 @@
+{
+  "name": "pw-dph-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/UIBasicTest.spec.js --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.27.1",
+    "allure-playwright": "^2.0.0-beta.19"
+  }
+}
