@@ -4,13 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/UIBasicTest.spec.js --headed"
+    "test": "npx playwright test tests/UIBasicTest.spec.js --headed",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
     "@playwright/test": "^1.27.1",
-    "allure-playwright": "^2.0.0-beta.19"
+    "allure-playwright": "^2.0.0-beta.19",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1"
   }
 }
