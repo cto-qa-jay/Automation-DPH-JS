@@ -15,6 +15,7 @@ logs/
 # misc
 .DS_Store
 .eslintcache
+package-lock.json
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
