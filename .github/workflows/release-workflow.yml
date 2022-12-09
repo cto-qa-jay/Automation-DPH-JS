@@ -1,0 +1,68 @@
+name: 'Release Workflow'
+on:
+  push:
+    branches: [main, develop, staging]
+
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.ref }}
+
+jobs:
+  lint-and-test:
+    name: Lint and unit test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.ref }} branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.0
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache
+
+      # - name: Run lint and type checks
+      #   run: yarn lint & yarn check:types & wait -n
+
+      - name: Run tests
+        run: yarn test
+
+  release:
+    name: Release
+    if: github.event.ref == 'refs/heads/main'
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+    outputs:
+      skipped: ${{ steps.changelog.outputs.skipped }}
+      tag: ${{ steps.changelog.outputs.tag }}
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          token: ${{ secrets.PAT }}
+
+      - id: changelog
+        name: Conventional Changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          git-message: 'chore(release): {version} [no ci]'
+          git-user-email: emnnipal@gmail.com
+          git-user-name: Emmanuel Nipal
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          output-file: 'false'
+          pre-release: false
+
+      - name: Create Github Release
+        uses: actions/create-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}

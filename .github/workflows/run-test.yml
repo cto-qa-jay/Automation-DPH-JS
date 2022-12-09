@@ -1,0 +1,34 @@
+name: 'Run test'
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        type: choice
+        default: 'beta'
+        options:
+          - beta
+          - staging
+          - production
+
+jobs:
+  run-tests:
+    name: 'Run test in ${{ github.event.inputs.environment }}:${{ github.ref_name }}'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.ref }} branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.0
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache
+
+      - name: Run tests
+        run: yarn test
