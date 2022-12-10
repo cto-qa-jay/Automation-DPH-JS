@@ -1,5 +1,5 @@
 const { test, expect, request } = require('@playwright/test');
-const { POManager } = require('../pageobjects/POManager');
+const { POManager } = require('../pageObjects/POManager');
 const urls = JSON.parse(JSON.stringify(require('../utils/dphEnvironment.json')));
 const cred = JSON.parse(JSON.stringify(require('../utils/dphLoginData.json')));
 
