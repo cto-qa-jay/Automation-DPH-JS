@@ -15,8 +15,6 @@
 //         this.FOOD_PANDA_PHILIPPINES = page.locator('');
 //     }
 
-    
-
 //     async LalamoveMetafields(){
 //         this.selectServiceType = page.locator('');
 //         await this.selectServiceType.click();
@@ -31,36 +29,35 @@
 // }
 // module.exports = {OndemandProviders};
 
-class Providers{
-    constructor(page){
-        this.page = page;
+class Providers {
+  constructor(page) {
+    this.page = page;
 
-        //Staging couriers
-        this.PRIME_MOVERS_TOTAL_LOGISTICS = page.getByText('Prime Movers Total Logistics, Inc.');
-        this.LIBCAP_SUPER_EXPRESS_CORP = page.getByText('LIBCAP Super Express Corporation');
-        this.XIMEX_DELIVERY_EXPRESS_INC = page.locator('');
-        this.SANDBOX_QUADX = page.locator('');
-        this.SANDBOX_NINJAVAN = page.locator('');
-        this.SANDBOX_XDE = page.locator('');
-        this.SANDBOX_DEV = page.locator('');
-        this.ENTREGO_EXPRESS_GLOBE = page.locator('');
-        this.ENTREGO_EXPRESS_CORP = page.locator('');
-        this.NONPAREIL_INTERNATIONAL = page.locator('');
-        this.ENTREGO_EXPRESS_MARKET = page.locator('');
-        this.SANDBOX_JNT_EXPRESS = page.locator('');
-        this.SANDBOX_PROVIDER = page.locator('');
-        this.NINJAVAN = page.locator('');
-        this.SANDBOX_DX = page.locator('');
-        this.QUADX_ZONE = page.locator('');
-        this.SANDBOX_BUSINESS = page.locator('');
+    //Staging couriers
+    this.PRIME_MOVERS_TOTAL_LOGISTICS = page.getByText('Prime Movers Total Logistics, Inc.');
+    this.LIBCAP_SUPER_EXPRESS_CORP = page.getByText('LIBCAP Super Express Corporation');
+    this.XIMEX_DELIVERY_EXPRESS_INC = page.locator('');
+    this.SANDBOX_QUADX = page.locator('');
+    this.SANDBOX_NINJAVAN = page.locator('');
+    this.SANDBOX_XDE = page.locator('');
+    this.SANDBOX_DEV = page.locator('');
+    this.ENTREGO_EXPRESS_GLOBE = page.locator('');
+    this.ENTREGO_EXPRESS_CORP = page.locator('');
+    this.NONPAREIL_INTERNATIONAL = page.locator('');
+    this.ENTREGO_EXPRESS_MARKET = page.locator('');
+    this.SANDBOX_JNT_EXPRESS = page.locator('');
+    this.SANDBOX_PROVIDER = page.locator('');
+    this.NINJAVAN = page.locator('');
+    this.SANDBOX_DX = page.locator('');
+    this.QUADX_ZONE = page.locator('');
+    this.SANDBOX_BUSINESS = page.locator('');
+  }
 
-    }
-
-    async clickPrimeMovers(){
-        return this.PRIME_MOVERS_TOTAL_LOGISTICS.click();
-    }
+  async clickPrimeMovers() {
+    return this.PRIME_MOVERS_TOTAL_LOGISTICS.click();
+  }
 }
-module.exports = {Providers};
+module.exports = { Providers };
 
 // class ProvidersMetafields{
 //     constructor(page){
