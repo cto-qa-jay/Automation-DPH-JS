@@ -25,8 +25,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --ignore-scripts
 
-      # - name: Run lint and type checks
-      #   run: yarn lint & yarn check:types & wait -n
+      - name: Run lint and type checks
+        run: yarn lint
 
       # - name: Run tests
       #   run: yarn test
