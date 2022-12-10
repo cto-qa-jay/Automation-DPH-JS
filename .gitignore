@@ -4,6 +4,8 @@ dist/
 build/
 coverage/
 logs/
+allure-report/
+allure-results/
 
 # secrets
 .env
@@ -16,6 +18,7 @@ logs/
 .DS_Store
 .eslintcache
 package-lock.json
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json

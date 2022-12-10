@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/UIBasicTest.spec.js --headed",
+    "test": "npx playwright test src/tests/UIBasicTest.spec.js --headed",
     "format": "npx prettier --write .",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "eslint . --fix --ext .js,.jsx",

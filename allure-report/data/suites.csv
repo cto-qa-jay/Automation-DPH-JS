@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Nov 02 05:00:49 EDT 2022","Wed Nov 02 05:00:50 EDT 2022","933","chromium","ApiDPH.spec.js","","","","API TEST 4",""
-"failed","Wed Nov 02 05:00:49 EDT 2022","Wed Nov 02 05:00:50 EDT 2022","592","chromium","ApiDPH.spec.js","","","","API TEST 3",""
-"passed","Wed Nov 02 05:00:49 EDT 2022","Wed Nov 02 05:00:50 EDT 2022","933","chromium","ApiDPH.spec.js","","","","API TEST 2",""
