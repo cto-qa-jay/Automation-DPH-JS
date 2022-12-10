@@ -7,6 +7,7 @@ test.describe('LOGIN TEST SUITE', () => {
   let poManager;
   let loginPage;
   var name1;
+  var name2;
 
   test.beforeEach(async ({ page }) => {
     poManager = new POManager(page);
@@ -26,6 +27,7 @@ test.describe('LOGIN TEST SUITE', () => {
     await expect(page.locator('.Toastify__toast')).toBeVisible();
     await page.screenshot({ path: 'screenshot1.png', fullPage: true });
   });
+  s;
   test('@WEB - Login Test Incorrect Username', async ({ page }) => {
     await loginPage.goTo(urls.betaUrl);
     await loginPage.validLogin(cred.busipass, cred.busipass);
