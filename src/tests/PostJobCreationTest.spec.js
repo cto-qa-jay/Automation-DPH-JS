@@ -1,4 +1,4 @@
-const { POManager } = require('../pageobjects/POManager');
+const { POManager } = require('../pageObjects/POManager');
 const { LoginHelper } = require('../utils/LoginHelper');
 
 const { test } = require('@playwright/test');

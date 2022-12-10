@@ -1,4 +1,4 @@
-const { POManager } = require('../pageobjects/POManager');
+const { POManager } = require('../pageObjects/POManager');
 
 const { test } = require('@playwright/test');
 const urls = JSON.parse(JSON.stringify(require('../utils/dphEnvironment.json')));

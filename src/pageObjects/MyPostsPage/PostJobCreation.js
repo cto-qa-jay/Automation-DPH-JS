@@ -147,4 +147,4 @@ class PostJobCreation {
   }
 }
 
-export default PostJobCreation;
+module.exports = { PostJobCreation };

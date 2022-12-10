@@ -6,8 +6,8 @@
   "scripts": {
     "test": "npx playwright test src/tests/UIBasicTest.spec.js --headed",
     "format": "npx prettier --write .",
-    "lint": "eslint . --ext .js,.jsx",
-    "lint:fix": "eslint . --fix --ext .js,.jsx",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "lint:fix": "eslint ./src --fix --ext .js,.jsx",
     "prepare": "husky install"
   },
   "keywords": [],

@@ -1,4 +1,4 @@
-const { POManager } = require('../pageobjects/POManager');
+const { POManager } = require('../pageObjects/POManager');
 
 const { test, expect } = require('@playwright/test');
 const urls = JSON.parse(JSON.stringify(require('../utils/dphEnvironment.json')));
@@ -26,6 +26,7 @@ test.describe('LOGIN TEST SUITE', () => {
     await expect(page.locator('.Toastify__toast')).toBeVisible();
     await page.screenshot({ path: 'screenshot1.png', fullPage: true });
   });
+
   test('@WEB - Login Test Incorrect Username', async ({ page }) => {
     await loginPage.goTo(urls.betaUrl);
     await loginPage.validLogin(cred.busipass, cred.busipass);

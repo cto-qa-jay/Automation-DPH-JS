@@ -8,4 +8,4 @@ class ShareableLink {
   }
 }
 
-export default ShareableLink;
+module.exports = { ShareableLink };

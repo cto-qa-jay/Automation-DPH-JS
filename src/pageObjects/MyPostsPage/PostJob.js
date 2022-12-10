@@ -19,4 +19,4 @@ class PostJob {
   }
 }
 
-export default PostJob;
+module.exports = { PostJob };

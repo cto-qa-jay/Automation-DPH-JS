@@ -1,7 +1,7 @@
 const { LoginPage } = require('./LoginPage');
-const { MyPostPage } = require('./My Posts Page/MyPostPage');
-const { PostJobCreation } = require('./My Posts Page/PostJobCreation');
-const { Providers } = require('./My Posts Page/Providers');
+const { MyPostPage } = require('./MyPostsPage/MyPostPage');
+const { PostJobCreation } = require('./MyPostsPage/PostJobCreation');
+const { Providers } = require('./MyPostsPage/Providers');
 const { SideNavigationMenu } = require('./SideNavigationMenu');
 
 class POManager {
