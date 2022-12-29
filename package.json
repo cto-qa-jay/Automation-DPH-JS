@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test src/tests/UIBasicTest.spec.js --headed",
+    "test": "npx playwright test src/tests/UIBasicTest.spec.js --headless",
     "format": "npx prettier --write .",
     "lint": "eslint ./src --ext .js,.jsx",
     "lint:fix": "eslint ./src --fix --ext .js,.jsx",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@playwright/test": "^1.27.1",
+    "@playwright/test": "^1.28.1",
     "allure-playwright": "^2.0.0-beta.19",
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",

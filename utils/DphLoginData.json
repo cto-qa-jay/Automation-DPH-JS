@@ -1,0 +1,13 @@
+{
+  "sandbox_qa": "rm@qa.fleet.ph",
+  "qa_pass": "LMI@2020",
+
+  "sandbox_dx": "rm@dx.fleet.ph",
+  "dx_pass": "LMI@2020",
+
+  "sandbox_business": "business@teamdeliveries.ph",
+  "business_pass": "teamdph2020",
+
+  "sandbox_provider": "provider@teamdeliveries.ph",
+  "provider_pass": "teamdph2020"
+}
