@@ -1,5 +1,5 @@
 // @ts-check
-const { devices } = require('@playwright/test');
+const { devices } = require('@playwright/test')
 
 /**
  * Read environment variables from file.
@@ -12,7 +12,7 @@ const { devices } = require('@playwright/test');
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  testDir: './tests',
+  testDir: './src/tests',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -20,7 +20,7 @@ const config = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000,
+    timeout: 10000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -40,7 +40,10 @@ const config = {
     // baseURL: 'http://localhost:3000',
     headless: false,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
+    launchOptions: {
+      slowMo: 200,
+    },
   },
 
   /* Configure projects for major browsers */
@@ -103,6 +106,6 @@ const config = {
   //   command: 'npm run start',
   //   port: 3000,
   // },
-};
+}
 
-module.exports = config;
+module.exports = config

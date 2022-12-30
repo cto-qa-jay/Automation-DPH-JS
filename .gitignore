@@ -6,6 +6,7 @@ coverage/
 logs/
 allure-report/
 allure-results/
+test-results/
 
 # secrets
 .env
