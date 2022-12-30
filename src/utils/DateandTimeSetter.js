@@ -40,11 +40,11 @@ class DateandTimeSetter {
 
     if (totalMinutes > 60) {
       await this.plusHour.click()
-      for (let i = minutes; i !== 0; i--) {
+      for (let i = 0; i <= minutes; i += 1) {
         await this.plusMinutes.click()
       }
     } else {
-      for (let i = minutes; i !== 0; i--) {
+      for (let i = 0; i <= minutes; i += 1) {
         await this.plusMinutes.click()
       }
     }

@@ -1,10 +1,8 @@
 /* eslint-disable no-loop-func */
-
 const { POManager } = require('../pageObjects/POManager')
 const { DateandTimeSetter } = require('../utils/DateandTimeSetter')
 const { LoginHelper } = require('../utils/LoginHelper')
-const { FillUpForms } = require('../utils/FormHelper')
-const pickUpDetails = require('../fixtures/PickUpDetails.json')
+
 const { test, expect } = require('@playwright/test')
 
 require('dotenv').config()
@@ -28,7 +26,6 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     viewHistory = poManager.getViewHistory()
     toast = poManager.getToastChecker(page)
     loginHelper = new LoginHelper(page)
-    formHelper = new FillUpForms(page)
     addNewPost = poManager.getAddNewPostPage()
     time = new DateandTimeSetter(page)
 
@@ -40,17 +37,13 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await loginHelper.loginHelper(process.env.business_username, process.env.dph_password)
   })
 
-  test(`@WEB - Create advanced post/orders for more than 15mins as auto-accept is ON`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create advanced post/orders for more than 15mins as auto-accept is ON`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
     await expect(await addNewPost.pickUpPage()).toBeEnabled()
     await addNewPost.fillUpReferenceNo('1')
     await addNewPost.clickUseLastProfile()
-    await formHelper.commonFields(pickUpDetails.name)
-
     await time.setTime(17)
     await addNewPost.clickNext()
     await expect(await addNewPost.deliveryPage()).toBeEnabled()
@@ -67,9 +60,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create advanced post/orders for more than 1hour as auto-accept is ON`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create advanced post/orders for more than 1hour as auto-accept is ON`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -92,9 +83,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create advanced post/orders for more than a day as auto-accept is ON`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create advanced post/orders for more than a day as auto-accept is ON`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -143,9 +132,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await expect(await viewHistory.latestStatus()).toContain('updated')
   })
 
-  test(`@WEB - Create non-motorcycles advanced post/orders for more than 15mins as auto-accept is ON`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles advanced post/orders for more than 15mins as auto-accept is ON`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -169,9 +156,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create non-motorcycles advanced post/orders for more than 1hour as auto-accept is ON`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles advanced post/orders for more than 1hour as auto-accept is ON`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -195,9 +180,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create non-motorcycles advanced post/orders for more than a day as auto-accept is ON`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles advanced post/orders for more than a day as auto-accept is ON`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -284,9 +267,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
 
   // OFF
 
-  test(`@WEB - Create advanced post/orders for more than 15mins as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create advanced post/orders for more than 15mins as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -309,9 +290,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create advanced post/orders for more than 1hour as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create advanced post/orders for more than 1hour as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -334,9 +313,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create advanced post/orders for more than a day as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create advanced post/orders for more than a day as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -360,9 +337,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create not an advanced post/orders for less than 15mins as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create not an advanced post/orders for less than 15mins as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -384,9 +359,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create non-motorcycles advanced post/orders for more than 15mins as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles advanced post/orders for more than 15mins as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -410,9 +383,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create non-motorcycles advanced post/orders for more than 1hour as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles advanced post/orders for more than 1hour as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -436,9 +407,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create non-motorcycles advanced post/orders for more than a day as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles advanced post/orders for more than a day as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
@@ -463,9 +432,7 @@ test.describe.serial('Manual advanced creation of posts ON Auto-Accept', () => {
     await expect(await viewHistory.latestStatus()).toContain('queued')
   })
 
-  test(`@WEB - Create non-motorcycles not an advanced post/orders for less than 15mins as auto-accept is OFF`, async ({
-    page,
-  }) => {
+  test(`@WEB - Create non-motorcycles not an advanced post/orders for less than 15mins as auto-accept is OFF`, async () => {
     await myPostPage.clickAddNewPost()
     await addNewPost.clickOnDemand()
     await addNewPost.clickNext()
