@@ -3,7 +3,8 @@
 const { POManager } = require('../pageObjects/POManager')
 const { DateandTimeSetter } = require('../utils/DateandTimeSetter')
 const { LoginHelper } = require('../utils/LoginHelper')
-
+const { FillUpForms } = require('../utils/FormHelper')
+const pickUpDetails = require('../fixtures/PickUpDetails.json')
 const { test, expect } = require('@playwright/test')
 
 require('dotenv').config()
@@ -27,6 +28,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     viewHistory = poManager.getViewHistory()
     toast = poManager.getToastChecker(page)
     loginHelper = new LoginHelper(page)
+    FormHelper = new FillUpForms(page)
     addNewPost = poManager.getAddNewPostPage()
     time = new DateandTimeSetter(page)
 
@@ -47,6 +49,7 @@ test.describe.serial.only('Manual advanced creation of posts ON Auto-Accept', ()
     await expect(await addNewPost.pickUpPage()).toBeEnabled()
     await addNewPost.fillUpReferenceNo('1')
     await addNewPost.clickUseLastProfile()
+
     await time.setTime(17)
     await addNewPost.clickNext()
     await expect(await addNewPost.deliveryPage()).toBeEnabled()

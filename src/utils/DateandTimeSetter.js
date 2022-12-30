@@ -37,18 +37,16 @@ class DateandTimeSetter {
     const wholeTime = await this.getCurrentTime()
     const getMinutes = wholeTime.split(':')[1]
     const totalMinutes = parseInt(getMinutes, 10) + minutes
-    let i = minutes
+
     if (totalMinutes > 60) {
       await this.plusHour.click()
-      do {
+      for (let i = minutes; i !== 0; i--) {
         await this.plusMinutes.click()
-        i -= 1
-      } while (i !== 0)
+      }
     } else {
-      do {
+      for (let i = minutes; i !== 0; i--) {
         await this.plusMinutes.click()
-        i -= 1
-      } while (i !== 0)
+      }
     }
   }
 }
