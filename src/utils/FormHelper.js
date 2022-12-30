@@ -24,7 +24,7 @@ class FillUpForms {
     await this.savePinButton.click()
   }
 
-  async commonFields(
+  async commonFields({
     name,
     mobileNumber,
     emailAddress,
@@ -32,8 +32,8 @@ class FillUpForms {
     province,
     city,
     barangay,
-    postalCode
-  ) {
+    postalCode,
+  }) {
     await this.name.fill(name)
     await this.mobileNumber.fill(mobileNumber)
     await this.emailAddress.fill(emailAddress)
